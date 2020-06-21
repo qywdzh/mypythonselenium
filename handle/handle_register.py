@@ -21,7 +21,7 @@ class RegisterHandle(RegisterPage):
         :param email: email账号
         :return:
         """
-        log.get_logger().info(f"输入的邮箱地址位：{email}")
+        log.get_logger().info("输入的邮箱地址位：{}".format(email))
         self.get_email_loc().send_keys(email)
 
     def input_username(self,username):

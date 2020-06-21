@@ -1,0 +1,94 @@
+from handle.handle_register import RegisterHandle
+
+
+class RegisterBusiness(RegisterHandle):
+    """
+    注册页面的业务逻辑
+    """
+
+    def user_register_base(self,email,username,password,code):
+        """
+        注册操作基础类
+        :return:
+        """
+        self.input_email(email)
+        self.input_username(username)
+        self.input_password(password)
+        self.input_piccode(code)
+        self.click_registerBtn()
+
+
+    def user_register_success(self,email,username,password,code):
+        """
+        成功注册
+        :return:
+        """
+        self.user_register_base(email,username,password,code)
+        if self.get_error_msg_text():
+            return True
+        else:
+            return False
+
+    def register_email_error(self,email,username,password,code):
+        """
+        email 无效
+        :param email:
+        :param username:
+        :param password:
+        :param code:
+        :return:
+        """
+        self.user_register_base(email,username,password,code)
+        if self.get_error_msg_text("user_email_error"):
+            return True
+        else:
+            return False
+
+    def register_username_error(self,email,username,password,code):
+        """
+        username 无效
+        :param email:
+        :param username:
+        :param password:
+        :param code:
+        :return:
+        """
+        self.user_register_base(email,username,password,code)
+        if self.get_error_msg_text("user_name_error"):
+            return True
+        else:
+            return False
+
+    def register_password_error(self,email,username,password,code):
+        """
+        password 无效
+        :param email:
+        :param username:
+        :param password:
+        :param code:
+        :return:
+        """
+        self.user_register_base(email,username,password,code)
+        if self.get_error_msg_text("user_password_error"):
+            return True
+        else:
+            return False
+
+    def register_piccode_error(self,email,username,password,code):
+        """
+        piccode 无效
+        :param email:
+        :param username:
+        :param password:
+        :param code:
+        :return:
+        """
+        self.user_register_base(email,username,password,code)
+        if self.get_error_msg_text("user_piccode_error"):
+            return True
+        else:
+            return False
+
+
+if __name__ == '__main__':
+    pass

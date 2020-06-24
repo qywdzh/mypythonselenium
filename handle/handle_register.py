@@ -59,23 +59,25 @@ class RegisterHandle(RegisterPage):
         log.get_logger().info("点击'注册'按钮")
         self.get_registerBtn_loc().click()
 
-    def get_error_msg_text(self,error_msg=None):
+    def get_error_msg_text(self,error_msg):
         """
         获取错误信息
         :return:
         """
+        # print(type(error_msg))
         try:
-            if error_msg == "user_email_error":
+            if error_msg == "email_error_msg" :
                 error_msg_text = self.get_email_error_msg_loc().text
-            elif error_msg == "user_name_error":
+            elif error_msg == "username_error_msg":
                 error_msg_text = self.get_username_error_msg_loc().text
-            elif error_msg == "user_password_error":
+            elif error_msg == "password_error_msg":
                 error_msg_text = self.get_password_error_msg_loc().text
             else:
                 error_msg_text = self.get_piccode_error_msg_loc().text
         except:
             error_msg_text = None
             log.get_logger().info("error_message:--->{0},error_msg_text--->{1}".format(error_msg,"没有找到类似错误"))
+        print(error_msg_text)
         return error_msg_text
 
 
@@ -83,10 +85,13 @@ class RegisterHandle(RegisterPage):
 
 
 if __name__ == '__main__':
-    driver = webdriver.Chrome()
-    driver.get("http://www.5itest.cn/register")
-    RegisterHandle(driver).input_email("1213")
-    RegisterHandle(driver).click_registerBtn()
-    error = RegisterHandle(driver).get_error_msg_text("user_email_error")
-    print(error)
+    # driver = webdriver.Chrome()
+    # driver.get("http://www.5itest.cn/register")
+    # RegisterHandle(driver).input_email("1213")
+    # RegisterHandle(driver).click_registerBtn()
+    # error = RegisterHandle(driver).get_error_msg_text("user_email_error")
+    # print(error)
+    error_msg = "user_email_error"
+    if "user_email_error"==error_msg:
+        print(True)
 

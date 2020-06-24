@@ -6,7 +6,28 @@ class RegisterBusiness(RegisterHandle):
     注册页面的业务逻辑
     """
 
-    def user_register_base(self,email,username,password,code):
+    def user_register_common(self, email, username, password, code, error_msg, error_text):
+        """
+        数据驱动是调用此方法
+        :param email:
+        :param username:
+        :param password:
+        :param code:
+        :return:
+        """
+        self.user_register_base(email, username, password, code)
+        if error_msg:
+            if self.get_error_msg_text(error_msg) == error_text:
+                return True
+            else:
+                return False
+        else:
+            return True
+
+
+
+
+    def user_register_base(self, email, username, password, code):
         """
         注册操作基础类
         :return:

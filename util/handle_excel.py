@@ -78,10 +78,36 @@ class HandleExcel():
         newSheet.write(row, cols, value)
         newWork.save(self.fileName)
 
+    def get_col_values(self, col=None):
+        """
+        获取制定列的数据
+        :param col:
+        :return:
+        """
+        if col:
+            col = col
+        else:
+            col = 0
+        col_values = self.get_sheet().col_values(col)
+        return col_values
+
+    def get_case_index(self, case_id, col=None):
+        """
+        通过case_id获取index
+        :param case_id:
+        :return:
+        """
+        col_values = self.get_col_values(col)
+        for i in range(1, len(col_values)):
+            if col_values[i] == case_id:
+                return i
+        return None
+
 
 
 
 if __name__ == '__main__':
-    HandleExcel().write_value(0,6,"pass")
+    data = HandleExcel().get_case_index("register_002")
+    print(data)
 
 

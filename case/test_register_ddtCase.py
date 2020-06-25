@@ -2,12 +2,11 @@ from base.myunit import StartEnd
 from businessView.register_business import RegisterBusiness
 from util.handle_excel import HandleExcel
 from util.handle_log import log
-import unittest, os, sys, ddt
-base_path = os.path.dirname(os.getcwd())
-sys.path.append(base_path)
+import unittest, ddt
+
 
 data = HandleExcel().get_all_datas()
-print(data)
+# print(data)
 @ddt.ddt()
 class RegisterDdtCase(StartEnd):
     """数据驱动"""

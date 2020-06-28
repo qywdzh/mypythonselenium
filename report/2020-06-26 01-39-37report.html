@@ -150,9 +150,9 @@ function showOutput(id, name) {
 <div class="container">
     <div class='heading'>
 <h1>自动化测试报告</h1>
-<p><strong>Start Time:</strong> 2020-06-22 23:44:21</p>
-<p><strong>Duration:</strong> 0:01:22.623986</p>
-<p><strong>Status:</strong> <span class="text text-success">Pass <strong>3</strong></span> <span class="text text-danger">Failure <strong>1</strong></span></p>
+<p><strong>Start Time:</strong> 2020-06-26 01:39:37</p>
+<p><strong>Duration:</strong> 0:01:08.090638</p>
+<p><strong>Status:</strong> <span class="text text-success">Pass <strong>5</strong></span></p>
 
 <p class='description'>自动化测试报告</p>
 </div>
@@ -177,40 +177,36 @@ function showOutput(id, name) {
     </thead>
     <tbody>
         
-<tr class='text text-danger'>
-    <td>test_register_case.RegisterCase</td>
-    <td>4</td>
-    <td>3</td>
-    <td>1</td>
+<tr class='text text-success'>
+    <td>test_register_ddtCase.RegisterDdtCase: 数据驱动</td>
+    <td>5</td>
+    <td>5</td>
     <td>0</td>
-    <td><a class="btn btn-xs btn-primary"href="javascript:showClassDetail('c1',4)">Detail</a></td>
+    <td>0</td>
+    <td><a class="btn btn-xs btn-primary"href="javascript:showClassDetail('c1',5)">Detail</a></td>
 </tr>
 
 <tr id='pt1.1' class='hiddenRow'>
-    <td class='text text-success'><div class='testcase'>test_email_error: email输入错误</div></td>
+    <td class='text text-success'><div class='testcase'>test_register_1___register_001____1_1_com____qywdzh____123456____123456____________Pass__</div></td>
     <td colspan='5' align='center'>pass</td>
 </tr>
 
-<tr id='ft1.2' class='text text-success'>
-    <td class='text text-danger'><div class='testcase'>test_normal_register: 正常注册成功</div></td>
+<tr id='pt1.2' class='hiddenRow'>
+    <td class='text text-success'><div class='testcase'>test_register_2___register_002________qywdzh____123456____12345____email_error_msg____请输入有效的电子邮件地址____Pass__</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_link btn btn-xs btn-default" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.2')" >
-        fail</a>
+    <a class="popup_link btn btn-xs btn-default" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.2')" >
+        pass</a>
 
-    <div id='div_ft1.2' class="popup_window">
+    <div id='div_pt1.2' class="popup_window">
         <div style='text-align: right;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.2').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.2').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-ft1.2: Traceback (most recent call last):
-  File "D:\study\web\mypythonselenium\case\test_register_case.py", line 14, in test_normal_register
-    self.assertFalse(RegisterBusiness(self.driver).user_register_success("1@1.com", "qywdzh", "123456", "78778"))
-AssertionError: True is not false
-
+pt1.2: 
 
         </pre>
     </div>
@@ -220,22 +216,84 @@ AssertionError: True is not false
 </tr>
 
 <tr id='pt1.3' class='hiddenRow'>
-    <td class='text text-success'><div class='testcase'>test_piccode_error: picode错误</div></td>
-    <td colspan='5' align='center'>pass</td>
+    <td class='text text-success'><div class='testcase'>test_register_3___register_003____1_1_com________123456____12345____username_error_msg____请输入用户名____Pass__</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link btn btn-xs btn-default" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.3')" >
+        pass</a>
+
+    <div id='div_pt1.3' class="popup_window">
+        <div style='text-align: right;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.3: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
 </tr>
 
 <tr id='pt1.4' class='hiddenRow'>
-    <td class='text text-success'><div class='testcase'>test_username_error: paaword错误</div></td>
-    <td colspan='5' align='center'>pass</td>
+    <td class='text text-success'><div class='testcase'>test_register_4___register_004____1_1_com____qywdzh________12345____password_error_msg____请输入密码____Pass__</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link btn btn-xs btn-default" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.4')" >
+        pass</a>
+
+    <div id='div_pt1.4' class="popup_window">
+        <div style='text-align: right;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.4: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.5' class='hiddenRow'>
+    <td class='text text-success'><div class='testcase'>test_register_5___register_005____1_1_com____qywdzh____123456________piccode_error_msg____请输入验证码____Pass__</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link btn btn-xs btn-default" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.5')" >
+        pass</a>
+
+    <div id='div_pt1.5' class="popup_window">
+        <div style='text-align: right;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.5').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.5: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
 </tr>
 
     </tbody>
     <tfoot>
         <tr id='total_row'>
             <td>Total</td>
-            <td>4</td>
-            <td class="text text-success">3</td>
-            <td class="text text-danger">1</td>
+            <td>5</td>
+            <td class="text text-success">5</td>
+            <td class="text text-danger">0</td>
             <td class="text text-warning">0</td>
             <td>&nbsp;</td>
         </tr>

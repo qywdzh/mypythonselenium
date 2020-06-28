@@ -14,7 +14,7 @@ class HandleLog():
         Format = logging.Formatter("[%(asctime)s] [%(filename)s] [lineno:%(lineno)d] [leve:%(levelname)s] [message:%(message)s]","%Y-%m-%d %H:%M:%S")
         #控制台输出
         consle = logging.StreamHandler()
-        consle.setLevel(logging.DEBUG)
+        consle.setLevel(logging.INFO)
         consle.setFormatter(Format)
 
         #输入值文件

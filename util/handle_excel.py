@@ -1,4 +1,5 @@
 import xlrd, os
+from xlutils.copy import copy
 
 base_path = os.path.dirname(os.getcwd())
 
@@ -26,7 +27,7 @@ class HandleExcel():
         打开excel
         :return:
         """
-        excel = xlrd.open_workbook(self.fileName)
+        excel = xlrd.open_workbook(self.fileName, formatting_info=True)
         return excel
 
     def get_sheet(self):
@@ -64,8 +65,49 @@ class HandleExcel():
         [all_datas.append(self.get_row_values(i)) for i in range(1,nrows)]
         return all_datas
 
+    def write_value(self, row, cols, value):
+        """
+        将values写入excel
+        :param row:
+        :param cols:
+        :param value:
+        :return:
+        """
+        newWork = copy(self.open_excel())
+        newSheet = newWork.get_sheet(0)
+        newSheet.write(row, cols, value)
+        newWork.save(self.fileName)
+
+    def get_col_values(self, col=None):
+        """
+        获取制定列的数据
+        :param col:
+        :return:
+        """
+        if col:
+            col = col
+        else:
+            col = 0
+        col_values = self.get_sheet().col_values(col)
+        return col_values
+
+    def get_case_index(self, case_id, col=None):
+        """
+        通过case_id获取index
+        :param case_id:
+        :return:
+        """
+        col_values = self.get_col_values(col)
+        for i in range(1, len(col_values)):
+            if col_values[i] == case_id:
+                return i
+        return None
+
+
+
 
 if __name__ == '__main__':
-    all_datas = HandleExcel().get_all_datas()
-    print(all_datas)
+    data = HandleExcel().get_case_index("register_002")
+    print(data)
+
 

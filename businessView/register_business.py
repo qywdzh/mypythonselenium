@@ -39,18 +39,18 @@ class RegisterBusiness(RegisterHandle):
         self.click_registerBtn()
 
 
-    def user_register_success(self,email,username,password,code):
+    def user_register_success(self,email,username,password,code, error_msg):
         """
         成功注册
         :return:
         """
         self.user_register_base(email,username,password,code)
-        if self.get_error_msg_text():
+        if self.get_error_msg_text(error_msg):
             return True
         else:
             return False
 
-    def register_email_error(self,email,username,password,code):
+    def register_email_error(self,email,username,password,code, error_msg):
         """
         email 无效
         :param email:
@@ -60,12 +60,12 @@ class RegisterBusiness(RegisterHandle):
         :return:
         """
         self.user_register_base(email,username,password,code)
-        if self.get_error_msg_text("user_email_error"):
+        if self.get_error_msg_text(error_msg):
             return True
         else:
             return False
 
-    def register_username_error(self,email,username,password,code):
+    def register_username_error(self,email,username,password,code, error_msg):
         """
         username 无效
         :param email:
@@ -75,12 +75,12 @@ class RegisterBusiness(RegisterHandle):
         :return:
         """
         self.user_register_base(email,username,password,code)
-        if self.get_error_msg_text("user_name_error"):
+        if self.get_error_msg_text(error_msg):
             return True
         else:
             return False
 
-    def register_password_error(self,email,username,password,code):
+    def register_password_error(self,email,username,password,code, error_msg):
         """
         password 无效
         :param email:
@@ -89,13 +89,13 @@ class RegisterBusiness(RegisterHandle):
         :param code:
         :return:
         """
-        self.user_register_base(email,username,password,code)
-        if self.get_error_msg_text("user_password_error"):
+        self.user_register_base(email,username,password,code, error_msg)
+        if self.get_error_msg_text(error_msg):
             return True
         else:
             return False
 
-    def register_piccode_error(self,email,username,password,code):
+    def register_piccode_error(self,email,username,password,code, error_msg):
         """
         piccode 无效
         :param email:
@@ -105,7 +105,7 @@ class RegisterBusiness(RegisterHandle):
         :return:
         """
         self.user_register_base(email,username,password,code)
-        if self.get_error_msg_text("user_piccode_error"):
+        if self.get_error_msg_text(error_msg):
             return True
         else:
             return False

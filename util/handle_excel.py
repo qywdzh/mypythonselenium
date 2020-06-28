@@ -27,16 +27,23 @@ class HandleExcel():
         打开excel
         :return:
         """
-        excel = xlrd.open_workbook(self.fileName, formatting_info=True)
-        return excel
+        try:
+            excel = xlrd.open_workbook(self.fileName, formatting_info=True)
+            return excel
+        except:
+            error_msg = {"message":"excel打开异常！！"}
+            return error_msg
 
     def get_sheet(self):
         """
         获取sheet数据
         :return:
         """
-        sheet = self.open_excel().sheet_by_index(self.sheetIndex)
-        return sheet
+        try:
+            sheet = self.open_excel().sheet_by_index(self.sheetIndex)
+            return sheet
+        except:
+            error_msg = {"message":"sheet页打开异常！！"}
 
     def get_nrows(self):
         """
@@ -44,7 +51,9 @@ class HandleExcel():
         :return:
         """
         nrows = self.get_sheet().nrows
-        return nrows
+        if nrows >=1:
+            return nrows
+        return None
 
     def get_row_values(self, index):
         """
@@ -52,8 +61,10 @@ class HandleExcel():
         :param index: 所在行的index
         :return:
         """
-        row_values = self.get_sheet().row_values(index)
-        return row_values
+        if self.get_nrows()> index:
+            row_values = self.get_sheet().row_values(index)
+            return row_values
+        return None
 
     def get_all_datas(self):
         """
@@ -62,8 +73,10 @@ class HandleExcel():
         """
         all_datas = []
         nrows = self.get_nrows()
-        [all_datas.append(self.get_row_values(i)) for i in range(1,nrows)]
-        return all_datas
+        if nrows:
+            [all_datas.append(self.get_row_values(i)) for i in range(1,nrows)]
+            return all_datas
+        return None
 
     def write_value(self, row, cols, value):
         """
@@ -103,11 +116,23 @@ class HandleExcel():
                 return i
         return None
 
+    def get_cell_value(self, row, col):
+        """
+        获取单元格的数据
+        :param row:
+        :param col:
+        :return:
+        """
+        if self.get_nrows()>row:
+            cell_data = self.get_sheet().cell_value(row, col)
+            return cell_data
+        return None
+
 
 
 
 if __name__ == '__main__':
-    data = HandleExcel().get_case_index("register_002")
+    data = HandleExcel().get_row_values(6)
     print(data)
 
 

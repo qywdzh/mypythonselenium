@@ -4,11 +4,8 @@ import time
 
 class ActionMethod():
 
-    def __init__(self, browser, note, key, fileName=None):
-        self.driver = self.open_browser(browser)
-        self.element = FindElement(self.driver)
+    def __init__(self,  note, fileName=None):
         self.note = note
-        self.key = key
         self.fileName = fileName
 
     def open_browser(self, browser):
@@ -18,12 +15,11 @@ class ActionMethod():
         :return:
         """
         if browser == "firefox":
-            driver = webdriver.Firefox()
+            self.driver = webdriver.Firefox()
         elif browser == "edge":
-            driver = webdriver.Edge()
+            self.driver = webdriver.Edge()
         else:
-            driver = webdriver.Chrome()
-        return driver
+            self.driver = webdriver.Chrome()
 
     def get_url(self, url):
         """
@@ -34,32 +30,57 @@ class ActionMethod():
         """
         self.driver.get(url)
 
-    def element_sleep(self):
+    def close_driver(self, *args):
+        """
+        关闭driver
+        :return:
+        """
+        self.driver.close()
+
+    def get_title(self):
+        """
+        获取当前页面的title
+        :return:
+        """
+        title = self.driver.title
+        return title
+
+    def element_sleep(self, times):
         """
         设置等待时间
         :return:
         """
-        time.sleep(2)
+        time.sleep(int(times))
 
-    def get_element(self):
+    def get_element(self, key):
         """
         获取元素
         :return:
         """
-        get_element = self.element.find_element(self.note, self.key, filename=self.fileName)
+        element = FindElement(self.driver)
+        get_element = element.find_element(self.note, key, filename=self.fileName)
         return get_element
 
-    def send_values(self, values):
+    def send_values(self, key, values):
         """
         输入action
         :return:
         """
-        self.get_element().send_keys(values)
+        self.get_element(key).send_keys(values)
 
-    def click_element(self):
+    def click_element(self, key):
         """
         点击action
         :return:
         """
-        self.get_element().click()
+        self.get_element(key).click()
+
+
+
+
+if __name__ == '__main__':
+    action = ActionMethod("chrome","register")
+    action.get_url("http://www.5itest.cn/register")
+    action.element_sleep()
+    action.send_values("email_editor_text", "1@1.com")
 

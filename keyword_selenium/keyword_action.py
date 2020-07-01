@@ -40,6 +40,13 @@ class KeyWordAction():
         """
         self.driver.get(url)
 
+    def get_title(self):
+        """
+        获取当前页面title
+        :return:
+        """
+        return  self.driver.title
+
     def element_sleep(self, times):
         """
         强制等待时间
@@ -73,6 +80,14 @@ class KeyWordAction():
     def element_click(self, elementKey):
         """
         点击行为
+        :return:
+        """
+        self.get_element(elementKey).click()
+
+    def click_button(self, elementKey):
+        """
+        点击“注册”按钮
+        :param elementKey:
         :return:
         """
         self.get_element(elementKey).click()

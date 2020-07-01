@@ -17,17 +17,46 @@ class KeyWordCase():
             excpt_result = excel.get_cell_value(i, 7)
             if is_run == "yes":
                 self.run_method(handle_method, send_keys, handle_element)
+                if excpt_result:
+                    excpt_result_values = self.get_excpt_result_values(excpt_result)
+                    if excpt_result_values[0] == "text":
+                        result = self.run_method(excpt_result_method)
+                        if self.get_excpt_result_values(excpt_result)[1] in result:
+                            excel.write_value(i, 8, "pass")
+                        else:
+                            excel.write_value(i, 8, "fail")
+                    elif self.get_excpt_result_values(excpt_result)[0] == "element":
+                        result = self.run_method(excpt_result_method, handle_element=excpt_result_values[1])
+                        if result:
+                            excel.write_value(i, 8, "pass")
+                        else:
+                            excel.write_value(i, 8, "fail")
+                    else:
+                        print("没有else")
+                else:
+                    print("预期为空")
 
+    def get_excpt_result_values(self, data):
+        """
 
-    def run_method(self, hamdle_method, send_keys, handle_element):
+        :param data:
+        :return:
+        """
+        return data.split("=")
+
+    def run_method(self, hamdle_method, send_keys="", handle_element=""):
         action = getattr(self.action, hamdle_method)
         if send_keys != "" and handle_element != "":
-            action(send_keys, handle_element)
+            result = action(handle_element, send_keys)
         elif send_keys != "" and handle_element == "":
-            action(send_keys)
+            result = action(send_keys)
         elif send_keys == "" and handle_element != "":
-            action(handle_element)
+            result = action(handle_element)
         else:
-            action()
+            result = action()
+        return result
 
 
+
+if __name__ == '__main__':
+    KeyWordCase().run_main()

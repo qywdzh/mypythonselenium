@@ -10,3 +10,4 @@
 [2020-07-01 00:12:39] [find_element.py] [lineno:29] [leve:INFO] [message:定位方式：id定位值：captcha_code]
 [2020-07-01 00:12:39] [find_element.py] [lineno:29] [leve:INFO] [message:定位方式：id定位值：register-btn]
 [2020-07-01 00:12:40] [find_element.py] [lineno:29] [leve:INFO] [message:定位方式：id定位值：captcha_code-error]
+[2020-07-01 13:12:27] [find_element.py] [lineno:29] [leve:INFO] [message:定位方式：id定位值：register_email]

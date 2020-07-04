@@ -1,7 +1,10 @@
-import BSTestRunner
 import os, sys, unittest, time
-base_path = os.path.dirname(os.getcwd())
+base_path = os.path.dirname(os.path.dirname(__file__))
+print(base_path)
 sys.path.append(base_path)
+import BSTestRunner
+
+# print(sys.path)
 
 class RunCase():
 
@@ -26,4 +29,3 @@ class RunCase():
 run = RunCase()
 if __name__ == '__main__':
     run.write_report()
-

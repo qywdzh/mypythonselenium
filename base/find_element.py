@@ -2,7 +2,7 @@ from selenium import webdriver
 from util.handle_ini import ini
 from util.handle_log import log
 import os
-base_path = os.path.dirname(os.getcwd())
+base_path = os.path.dirname(os.path.dirname(__file__))
 
 
 

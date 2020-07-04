@@ -1,7 +1,8 @@
 import os,sys,logging,time
 import logging.config
-
-base_path = os.path.dirname(os.getcwd())
+base_path = os.path.dirname(os.path.dirname(__file__))
+# print(base_path)
+# sys.path.append(base_path)
 
 
 class HandleLog():
@@ -21,6 +22,7 @@ class HandleLog():
 
         now = time.strftime("%Y-%m-%d")
         filename = base_path + '/log/' + now + ".log"
+        # print(filename)
         file_handler = logging.FileHandler(filename, mode="a", encoding="utf-8-sig")
         file_handler.setLevel(logging.INFO)
         file_handler.setFormatter(Format)

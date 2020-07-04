@@ -1,7 +1,7 @@
 import xlrd, os
 from xlutils.copy import copy
 
-base_path = os.path.dirname(os.getcwd())
+base_path = os.path.dirname(os.path.dirname(__file__))
 
 class HandleExcel():
     """操作excel"""

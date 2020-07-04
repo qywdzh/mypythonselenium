@@ -150,9 +150,9 @@ function showOutput(id, name) {
 <div class="container">
     <div class='heading'>
 <h1>自动化测试报告</h1>
-<p><strong>Start Time:</strong> 2020-06-26 01:39:37</p>
-<p><strong>Duration:</strong> 0:01:08.090638</p>
-<p><strong>Status:</strong> <span class="text text-success">Pass <strong>5</strong></span></p>
+<p><strong>Start Time:</strong> 2020-07-03 13:51:11</p>
+<p><strong>Duration:</strong> 0:00:00.025478</p>
+<p><strong>Status:</strong> <span class="text text-warning">Error <strong>2</strong></span></p>
 
 <p class='description'>自动化测试报告</p>
 </div>
@@ -177,36 +177,43 @@ function showOutput(id, name) {
     </thead>
     <tbody>
         
-<tr class='text text-success'>
-    <td>test_register_ddtCase.RegisterDdtCase: 数据驱动</td>
-    <td>5</td>
-    <td>5</td>
+<tr class='text text-warning'>
+    <td>unittest.loader._FailedTest</td>
+    <td>2</td>
     <td>0</td>
     <td>0</td>
-    <td><a class="btn btn-xs btn-primary"href="javascript:showClassDetail('c1',5)">Detail</a></td>
+    <td>2</td>
+    <td><a class="btn btn-xs btn-primary"href="javascript:showClassDetail('c1',2)">Detail</a></td>
 </tr>
 
-<tr id='pt1.1' class='hiddenRow'>
-    <td class='text text-success'><div class='testcase'>test_register_1___register_001____1_1_com____qywdzh____123456____123456____________Pass__</div></td>
-    <td colspan='5' align='center'>pass</td>
-</tr>
-
-<tr id='pt1.2' class='hiddenRow'>
-    <td class='text text-success'><div class='testcase'>test_register_2___register_002________qywdzh____123456____12345____email_error_msg____请输入有效的电子邮件地址____Pass__</div></td>
+<tr id='ft1.1' class='text text-success'>
+    <td class='text text-warning'><div class='testcase'>test_register_case</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_link btn btn-xs btn-default" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.2')" >
-        pass</a>
+    <a class="popup_link btn btn-xs btn-default" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.1')" >
+        error</a>
 
-    <div id='div_pt1.2' class="popup_window">
+    <div id='div_ft1.1' class="popup_window">
         <div style='text-align: right;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.2').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.1').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-pt1.2: 
+ft1.1: ImportError: Failed to import test module: test_register_case
+Traceback (most recent call last):
+  File "C:\Program Files\Python38\lib\unittest\loader.py", line 436, in _find_test_path
+    module = self._get_module_from_name(name)
+  File "C:\Program Files\Python38\lib\unittest\loader.py", line 377, in _get_module_from_name
+    __import__(name)
+  File "D:\git\mypythonselenium\case\test_register_case.py", line 1, in &lt;module&gt;
+    from base.myunit import StartEnd
+  File "D:\git\mypythonselenium\base\myunit.py", line 2, in &lt;module&gt;
+    from selenium import webdriver
+ModuleNotFoundError: No module named 'selenium'
+
+
 
         </pre>
     </div>
@@ -215,70 +222,34 @@ pt1.2:
     </td>
 </tr>
 
-<tr id='pt1.3' class='hiddenRow'>
-    <td class='text text-success'><div class='testcase'>test_register_3___register_003____1_1_com________123456____12345____username_error_msg____请输入用户名____Pass__</div></td>
+<tr id='ft1.2' class='text text-success'>
+    <td class='text text-warning'><div class='testcase'>test_register_ddtCase</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_link btn btn-xs btn-default" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.3')" >
-        pass</a>
+    <a class="popup_link btn btn-xs btn-default" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.2')" >
+        error</a>
 
-    <div id='div_pt1.3' class="popup_window">
+    <div id='div_ft1.2' class="popup_window">
         <div style='text-align: right;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.3').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.2').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-pt1.3: 
+ft1.2: ImportError: Failed to import test module: test_register_ddtCase
+Traceback (most recent call last):
+  File "C:\Program Files\Python38\lib\unittest\loader.py", line 436, in _find_test_path
+    module = self._get_module_from_name(name)
+  File "C:\Program Files\Python38\lib\unittest\loader.py", line 377, in _get_module_from_name
+    __import__(name)
+  File "D:\git\mypythonselenium\case\test_register_ddtCase.py", line 1, in &lt;module&gt;
+    from base.myunit import StartEnd
+  File "D:\git\mypythonselenium\base\myunit.py", line 2, in &lt;module&gt;
+    from selenium import webdriver
+ModuleNotFoundError: No module named 'selenium'
 
-        </pre>
-    </div>
-    <!--css div popup end-->
 
-    </td>
-</tr>
-
-<tr id='pt1.4' class='hiddenRow'>
-    <td class='text text-success'><div class='testcase'>test_register_4___register_004____1_1_com____qywdzh________12345____password_error_msg____请输入密码____Pass__</div></td>
-    <td colspan='5' align='center'>
-
-    <!--css div popup start-->
-    <a class="popup_link btn btn-xs btn-default" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.4')" >
-        pass</a>
-
-    <div id='div_pt1.4' class="popup_window">
-        <div style='text-align: right;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.4').style.display = 'none' " >
-           [x]</a>
-        </div>
-        <pre>
-        
-pt1.4: 
-
-        </pre>
-    </div>
-    <!--css div popup end-->
-
-    </td>
-</tr>
-
-<tr id='pt1.5' class='hiddenRow'>
-    <td class='text text-success'><div class='testcase'>test_register_5___register_005____1_1_com____qywdzh____123456________piccode_error_msg____请输入验证码____Pass__</div></td>
-    <td colspan='5' align='center'>
-
-    <!--css div popup start-->
-    <a class="popup_link btn btn-xs btn-default" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.5')" >
-        pass</a>
-
-    <div id='div_pt1.5' class="popup_window">
-        <div style='text-align: right;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.5').style.display = 'none' " >
-           [x]</a>
-        </div>
-        <pre>
-        
-pt1.5: 
 
         </pre>
     </div>
@@ -291,10 +262,10 @@ pt1.5:
     <tfoot>
         <tr id='total_row'>
             <td>Total</td>
-            <td>5</td>
-            <td class="text text-success">5</td>
+            <td>2</td>
+            <td class="text text-success">0</td>
             <td class="text text-danger">0</td>
-            <td class="text text-warning">0</td>
+            <td class="text text-warning">2</td>
             <td>&nbsp;</td>
         </tr>
     </tfoot>

@@ -6,7 +6,7 @@ class StartEnd(unittest.TestCase):
 
     def setUp(self):
         self.driver = webdriver.Chrome()
-        self.driver.get("http://www.5itest.cn/register")
+        self.driver.get()
         self.driver.implicitly_wait(15)
         self.driver.maximize_window()
 

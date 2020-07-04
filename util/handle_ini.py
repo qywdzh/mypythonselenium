@@ -1,5 +1,5 @@
 import os,sys
-base_path = os.path.dirname(os.getcwd())
+base_path = os.path.dirname(os.path.dirname(__file__))
 sys.path.append(base_path)
 from configparser import ConfigParser
 

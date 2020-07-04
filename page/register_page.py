@@ -3,7 +3,7 @@ from util.handle_ini import ini
 from util.handle_log import log
 import os, sys
 from selenium import webdriver
-base_path = os.path.dirname(os.getcwd())
+base_path = os.path.dirname(os.path.dirname(__file__))
 sys.path.append(base_path)
 
 
